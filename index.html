@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Accessibility Checker tool UX/UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="checker">
+        <section>
+            <label for="bgColor">Background Color:</label>
+            <input type="color" name="bgColor" id="bgColor" value="#ffffff">
+
+            <label for="textColor">Text Color:</label>
+            <input type="color" name="textColor" id="textColor" value="#000000">
+        </section>
+        <section>
+            <div id="sampleText" class="sample">
+                Sample Text
+            </div>
+            <div class="results">
+                <p id="contrastRatio">Contrast Ratio: 0.00</p>
+                <p id="wcagStatus">WCAG Status: Fails</p>
+            </div>
+        </section>
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
