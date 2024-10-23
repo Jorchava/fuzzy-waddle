@@ -1,15 +1,30 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     padding: 20px;
+    margin: 0;
+}
+
+#wcagStatus {
+    font-weight: bold;
+}
+
+input[type="color"] {
+    width: 100px;
+    height: 50px;
+    border: 1px solid;
+}
+
+#contrastRatio,
+#wcagStatus {
+    font-size: 1.2em;
 }
 
 .checker {
-    max-width: 400px;
     margin: 0 auto;
 }
 
 .sample {
-    font-size: 24px;
+    font-size: 1.3em;
     padding: 10px;
     margin-top: 20px;
     text-align: center;
@@ -17,4 +32,122 @@ body {
 
 .results {
     margin-top: 20px;
+}
+
+/* components styling */
+.nav-component ul, .nav-component li {
+    margin: auto;
+    padding: 0;
+}
+.nav-component ul {
+    display: flex;
+    list-style: none;
+    width: 100%;
+}
+.nav-component li {
+    padding: 20px;
+    opacity: 1;
+    width: 100%;
+    text-align: center;
+}
+.nav-component li:hover {
+    opacity: .7;
+    text-shadow: 2.5px 2.5px 10px;
+    transition: all 1s ease;
+}
+.nav-component li a {
+    color: inherit;
+    text-decoration: none;
+}
+.masthead-component {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    min-height: 500px;
+    overflow: hidden;
+}
+.masthead-component_title-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+}
+.masthead-component_img-wrapper {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 25px;
+    text-align: center;
+}
+.masthead-component_subtitle-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px;
+    z-index: 3;
+}
+.masthead-component h1 {
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.masthead-component img {
+    width: 100%;
+    height: auto;
+    max-width: 760px;
+}
+.masthead-component h2 {
+    font-size: 1.1em;
+    margin: 0;
+}
+.masthead-component p {
+    font-size: .9em;
+}
+.masthead-component_overlay-1 {
+    position: absolute;
+    bottom: -40px;
+    filter: blur(60px);
+    height: 320px;
+    z-index: 2;
+    width: 100%;
+}
+.masthead-component_overlay-2 {
+    position: absolute;
+    bottom: -150px;
+    filter: blur(32px);
+    height: 360px;
+    z-index: 2;
+    width: 100%;
+}
+
+@media (min-width: 810px) {
+    body {
+        padding: 40px;
+    }
+}
+@media (min-width: 1366px) {
+    body {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    .masthead-component {
+        min-height: 760px;
+    }
+    .masthead-component h1 {
+        font-size: 4.7em;
+    }
+    .masthead-component_img-wrapper {
+        top: 68px;
+    }
+    .masthead-component h2 {
+        font-size: 3.1em;
+    }
+    .masthead-component p {
+        font-size: 1.3em;
+    }
 }

@@ -7,25 +7,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="checker">
-        <section>
-            <label for="bgColor">Background Color:</label>
-            <input type="color" name="bgColor" id="bgColor" value="#ffffff">
+    <!-- Web Accessibility Checker tool UX/UI -->
+        <main class="checker">
+            <section>
+                <label for="bgColor">Background Color:</label>
+                <input type="color" name="bgColor" id="bgColor" value="#ffffff">
 
-            <label for="textColor">Text Color:</label>
-            <input type="color" name="textColor" id="textColor" value="#000000">
-        </section>
-        <section>
-            <div id="sampleText" class="sample">
-                Sample Text
+                <label for="textColor">Text Color:</label>
+                <input type="color" name="textColor" id="textColor" value="#000000">
+            </section>
+            <section>
+                <div class="results">
+                    <p id="contrastRatio">Contrast Ratio: 0.00</p>
+                    <p id="wcagStatus">WCAG Status: Fails</p>
+                </div>
+            </section>
+        </main>
+    <!-- down here use any components or anything as long as you set the css classes to update and check against wcag -->
+    <section class="component-wrappers checker">
+        <nav class="nav-component">
+            <ul>
+                <li class="sampleBgColor sampleTextColor"><a href="#">About</a></li>
+                <li class="sampleBgColor sampleTextColor"><a href="#">News</a></li>
+                <li class="sampleBgColor sampleTextColor"><a href="#">Jobs</a></li>
+                <li class="sampleBgColor sampleTextColor"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <header class="masthead-component sampleBgColor sampleTextColor">
+            <div class="masthead-component_title-wrapper">
+                <h1>Web Accessibility Checker</h1>
             </div>
-            <div class="results">
-                <p id="contrastRatio">Contrast Ratio: 0.00</p>
-                <p id="wcagStatus">WCAG Status: Fails</p>
+            <div class="masthead-component_img-wrapper">
+                <img src="jorchava.png" alt="jorchava pixel art avatar">
             </div>
-        </section>
-        
-    </main>
+            <div class="masthead-component_subtitle-wrapper">
+                <h2>Checker tools for UX/UI samples</h2>
+                <p>
+                    This tool dynamically update the colors across various elements with specific classes while staying in compliance with accessibility standards.
+                    Up next to implement: Adding keyboard navigation support, randomize color combinations, more accessibility checks, such as font size, readable colors, or ARIA 
+                    (Accessible Rich Internet Applications) compliance checks. Ratio Contrast calification text, WCAG Compliance AA or AAA status, Hex color values text, 3 foreground 
+                    and background suggestions. Quick switch button for bg vs text. Upgrade to a modern and better UI.
+                </p>
+            </div>
+            <div class="masthead-component_overlay-1 sampleBgColor"></div>
+            <div class="masthead-component_overlay-2 sampleBgColor"></div>
+        </header>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>
