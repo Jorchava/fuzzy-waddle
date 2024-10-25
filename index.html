@@ -7,25 +7,112 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="checker">
-        <section>
+    <!-- Web Accessibility Checker tool UX/UI -->
+        <main class="checker">
             <label for="bgColor">Background Color:</label>
-            <input type="color" name="bgColor" id="bgColor" value="#ffffff">
-
-            <label for="textColor">Text Color:</label>
-            <input type="color" name="textColor" id="textColor" value="#000000">
-        </section>
-        <section>
-            <div id="sampleText" class="sample">
-                Sample Text
-            </div>
-            <div class="results">
-                <p id="contrastRatio">Contrast Ratio: 0.00</p>
-                <p id="wcagStatus">WCAG Status: Fails</p>
-            </div>
-        </section>
+            <input type="color" id="bgColor" name="bgColor" value="#000000" aria-label="Background color picker">
+            <span id="bgColorValue">#000000</span> <!-- Hex value for background -->
         
-    </main>
+            <label for="textColor">Text Color:</label>
+            <input type="color" id="textColor" name="textColor" value="#FFFFFF" aria-label="Text color picker">
+            <span id="textColorValue">#FFFFFF</span> <!-- Hex value for text -->
+
+            <button id="colorSwitch" aria-label="Switch Background and Text Color">
+                <span class="switch-icon" aria-hidden="true">⇆</span>
+            </button>
+        
+            <div>Contrast Ratio: <span id="contrastRatio"></span></div>
+            <p>WCAG Status:
+                <span id="wcagStatusAA" class="statusSymbol">AA</span>
+                <span id="wcagStatusAAA" class="statusSymbol">AAA</span>
+            </p>
+            <div class="randomizeColors_wrapper">
+                <button id="randomizeColors">Randomize Colors</button>
+            </div>
+        </main>
+    <!-- down here use any components or anything as long as you set the css classes to update and check against wcag -->
+    <section class="component-wrappers checker">
+        <nav class="nav-component">
+            <ul>
+                <li class="sampleBgColor sampleTextColor"><a href="#">About</a></li>
+                <li class="sampleBgColor sampleTextColor"><a href="#">News</a></li>
+                <li class="sampleBgColor sampleTextColor"><a href="#">Jobs</a></li>
+                <li class="sampleBgColor sampleTextColor"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <header class="masthead-component sampleBgColor sampleTextColor">
+            <div class="masthead-component_title-wrapper">
+                <h1>Web Accessibility Checker</h1>
+            </div>
+            <div class="masthead-component_img-wrapper">
+                <img src="jorchava.png" alt="jorchava pixel art avatar">
+            </div>
+            <div class="masthead-component_subtitle-wrapper">
+                <h2>Checker tools for UX/UI samples</h2>
+                <p>
+                    This tool allos you to update using a color pickers the colors of some elements with specific classes and displays information about accessibility standards based on the color selections.
+                    Up next to implement: More accessibility checks, such as font size, readable colors, or ARIA 
+                    (Accessible Rich Internet Applications) compliance checks. 3 foreground 
+                    and background suggestions potentially this would be in a sidebar that opens up for more tools. Upgrade to a modern and better UI.
+                </p>
+            </div>
+            <div class="masthead-component_overlay-1 sampleBgColor"></div>
+            <div class="masthead-component_overlay-2 sampleBgColor"></div>
+        </header>
+        <div class="blog-card sampleSwitchColor">
+            <div class="meta">
+              <div class="photo" style="background-image: url(https://picsum.photos/799/533)"></div>
+              <ul class="details sampleSwitchColor">
+                <li><a href="#">ADA colors</a></li>
+                <li>Oct. 20, 2024</li>
+                <li>
+                  <ul>
+                    <li><a href="#">Update the actual DOM elements</a></li>
+                    <li><a href="#">UX/UI</a></li>
+                    <li><a href="#">Components</a></li>
+                    <li><a href="#">UI with the new colors</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="description sampleSwitchColor">
+              <h2>Randomizer</h2>
+              <h3>Click on the Randomize Colors button</h3>
+              <p>It will give you a combination of two new colors and the hex values will change immediately to reflect the selected colors updating the texts next to the color pickers and UI.</p>
+              <p class="read-more">
+                <a href="#">Read More
+                    <span class="sr-only">, about the randomizer functionality</span>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="blog-card alt sampleBgColor sampleTextColor">
+            <div class="meta">
+              <div class="photo" style="background-image: url(https://picsum.photos/799/533?grayscale)"></div>
+              <ul class="details sampleBgColor sampleTextColor">
+                <li><a href="#">Random Ice</a></li>
+                <li>October. 24, 2024</li>
+                <li>
+                  <ul>
+                    <li><a href="#">Hex</a></li>
+                    <li><a href="#">HSLA</a></li>
+                    <li><a href="#">WCAG 2.1</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="description sampleBgColor">
+              <h2>Selective background color</h2>
+              <h3>JavaScript, AAA</h3>
+              <p>The components's elements with the CSS class .sampleBgColor will update its background color, the elements with .sampleTextColor its text color, but the sampleSwitchColor is used to invert the colors.</p>
+              <p class="read-more">
+                <a href="#">Read More
+                    <span class="sr-only">, about the selective bg color picker functionality</span>
+                </a>
+              </p>
+            </div>
+          </div>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>
