@@ -1,0 +1,178 @@
+class ColorChecker extends HTMLElement {
+  connectedCallback() {
+    console.log('[colorChecker] connectedCallBack')
+    // Find elements inside this component
+    const bgColorPicker = this.querySelector('#bgColor');
+    const textColorPicker = this.querySelector('#textColor');
+    const colorSwitch = this.querySelector('#colorSwitch');
+    const contrastRatioDisplay = this.querySelector('#contrastRatio');
+    const wcagStatusAA = this.querySelector('#wcagStatusAA');
+    const wcagStatusAAA = this.querySelector('#wcagStatusAAA');
+    const randomizeButton = this.querySelector('#randomizeColors');
+    const bgColorValue = this.querySelector('#bgColorValue');
+    const textColorValue = this.querySelector('#textColorValue');
+
+    if (!bgColorPicker || !textColorPicker) {
+      console.warn('[ColorChecker] Missing color picker elements');
+      return;
+    }
+
+    // Load saved colors from localStorage
+    const savedBgColor = localStorage.getItem('bgColor') || '#000000';
+    const savedTextColor = localStorage.getItem('textColor') || '#FFFFFF';
+    console.log('[ColorChecker] Loaded colors from storage:', {savedBgColor, savedTextColor});
+    
+    applyColors(savedBgColor, savedTextColor);
+    updateContrastRatio(savedBgColor, savedTextColor);
+
+    bgColorPicker.addEventListener('input', (event) => {
+      const bgColor = event.target.value;
+      const textColor = textColorPicker.value;
+      console.log('[ColorPicker] bgColorPicker input:', { bgColor, textColor });
+      applyColors(bgColor, textColor);
+      updateContrastRatio(bgColor, textColor);
+      localStorage.setItem('bgColor', bgColor);
+      dispatchColorChange(bgColor, textColor);
+    });
+
+    textColorPicker.addEventListener('input', (event) => {
+      const textColor = event.target.value;
+      const bgColor = bgColorPicker.value;
+      console.log('[ColorPicker] textColorPicker input:', { bgColor, textColor });
+      applyColors(bgColor, textColor);
+      updateContrastRatio(bgColor, textColor);
+      localStorage.setItem('textColor', textColor);
+      dispatchColorChange(bgColor, textColor);
+    });
+
+    colorSwitch.addEventListener('click', () => {
+      const tempColor = bgColorPicker.value;
+      bgColorPicker.value = textColorPicker.value;
+      textColorPicker.value = tempColor;
+      console.log('[ColorChecker] colorSwitch clicked:', { bgColor: bgColorPicker.value, textColor: textColorPicker.value });
+      applyColors(bgColorPicker.value, textColorPicker.value);
+      updateContrastRatio(bgColorPicker.value, textColorPicker.value);
+      localStorage.setItem('bgColor', bgColorPicker.value);
+      localStorage.setItem('textColor', textColorPicker.value);
+      dispatchColorChange(bgColorPicker.value, textColorPicker.value);
+    });
+
+    randomizeButton.addEventListener('click', () => {
+      const { randomBgColor, randomTextColor } = getRandomColorsWithFailureChance();
+      console.log('[ColorChecker] randomizeButton clicked:', { randomBgColor, randomTextColor });
+      applyColors(randomBgColor, randomTextColor);
+      updateContrastRatio(randomBgColor, randomTextColor);
+      localStorage.setItem('bgColor', randomBgColor);
+      localStorage.setItem('textColor', randomTextColor);
+      dispatchColorChange(randomBgColor, randomTextColor);
+    });
+
+    function dispatchColorChange(bgColor, textColor) {
+      console.log('[ColorChecker] dispatchColorChange:', { bgColor, textColor });
+      document.dispatchEvent(new CustomEvent('color-change', {
+        detail: { bgColor, textColor }
+      }));
+    }
+
+    function applyColors(bgColor, textColor) {
+      console.log('[ColorChecker] applyColors:', { bgColor, textColor });
+      bgColorValue.textContent = bgColor;
+      textColorValue.textContent = textColor;
+      bgColorPicker.value = bgColor;
+      textColorPicker.value = textColor;
+    }
+
+    function updateContrastRatio(bgColor, textColor) {
+      const contrastRatio = getContrastRatio(bgColor, textColor);
+      const statusText = getStatusText(contrastRatio);
+
+      console.log('[ColorChecker] updateContrastRatio:', { bgColor, textColor, contrastRatio, statusText });
+
+      contrastRatioDisplay.textContent = `${contrastRatio.toFixed(2)} ${statusText.text}`;
+      contrastRatioDisplay.style.color = statusText.color;
+
+      if (contrastRatio < 4.5) {
+        wcagStatusAA.classList.remove('pass');
+        wcagStatusAAA.classList.remove('pass');
+        wcagStatusAA.classList.add('fail');
+        wcagStatusAAA.classList.add('fail');
+      } else if (contrastRatio >= 4.5 && contrastRatio < 7.0) {
+        wcagStatusAA.classList.remove('fail');
+        wcagStatusAAA.classList.remove('pass');
+        wcagStatusAA.classList.add('pass');
+        wcagStatusAAA.classList.add('fail');
+      } else {
+        wcagStatusAA.classList.remove('fail');
+        wcagStatusAAA.classList.remove('fail');
+        wcagStatusAA.classList.add('pass');
+        wcagStatusAAA.classList.add('pass');
+      }
+
+      //wcagStatusAA.style.color = statusText.aaColor;
+      //wcagStatusAAA.style.color = statusText.aaaColor;
+    }
+
+    function getStatusText(contrastRatio) {
+      if (contrastRatio < 4.5) {
+        return { text: '(Poor)', color: '#d92d20', aaColor: '#d92d20', aaaColor: '#d92d20' };
+      } else if (contrastRatio >= 4.5 && contrastRatio < 7.0) {
+        return { text: '(Good)', color: '#079455', aaColor: '#079455', aaaColor: '#d92d20' };
+      } else {
+        return { text: '(Very Good)', color: '#079455', aaColor: '#079455', aaaColor: '#079455' };
+      }
+    }
+
+    function getContrastRatio(bgColor, textColor) {
+      const bgLuminance = calculateLuminance(bgColor);
+      const textLuminance = calculateLuminance(textColor);
+      return (Math.max(bgLuminance, textLuminance) + 0.05) /
+        (Math.min(bgLuminance, textLuminance) + 0.05);
+    }
+
+    function calculateLuminance(color) {
+      const rgb = hexToRgb(color);
+      const [r, g, b] = rgb.map((value) => {
+        const channel = value / 255;
+        return channel <= 0.03928 ? channel / 12.92 : Math.pow((channel + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    }
+
+    function hexToRgb(hex) {
+      const cleanHex = hex.replace('#', '');
+      const bigint = parseInt(cleanHex, 16);
+      return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+    }
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function getRandomAACompliantColors() {
+      let randomBgColor, randomTextColor, contrastRatio;
+      do {
+        randomBgColor = getRandomColor();
+        randomTextColor = getRandomColor();
+        contrastRatio = getContrastRatio(randomBgColor, randomTextColor);
+      } while (contrastRatio < 4.5);
+      return { randomBgColor, randomTextColor };
+    }
+
+    function getRandomColorsWithFailureChance() {
+      const failureChance = Math.random();
+      if (failureChance > 0.1) {
+        return getRandomAACompliantColors();
+      }
+      return {
+        randomBgColor: getRandomColor(),
+        randomTextColor: getRandomColor()
+      };
+    }
+  }
+}
+customElements.define('color-checker', ColorChecker);

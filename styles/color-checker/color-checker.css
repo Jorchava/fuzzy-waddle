@@ -1,0 +1,150 @@
+.checker {
+    max-width: 98vw;
+    margin: 1rem auto;
+    padding: 0.7rem;
+    background: #fff;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1.5px 6px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 1.25rem;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#randomizeColors {
+    width: 100%;
+}
+.checker label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #222;
+    letter-spacing: 0.01em;
+}
+.checker input[type="color"] {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 8px;
+    background: #f3f3f3;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.checker input[type="color"]:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+#bgColorValue, #textColorValue {
+    font-family: monospace;
+    font-size: 1em;
+    margin-left: 0.5rem;
+    color: #444;
+    background: #f6f6f6;
+    padding: 0.15em 0.5em;
+    border-radius: 0.4em;
+}
+#colorSwitch {
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+#colorSwitch:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    background: #1749b1;
+}
+#randomizeColors {
+    background: #f59e42;
+    color: #fff;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+#randomizeColors:focus {
+    outline: 2px solid #f59e42;
+    outline-offset: 2px;
+    background: #c97a2b;
+}
+#contrastRatio {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0.2em 0.6em;
+    border-radius: 0.4em;
+    background: #f3f3f3;
+    color: #222;
+}
+.randomizeColors_wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+.statusSymbol {
+    font-weight: bold;
+    margin-left: 0.5em;
+    padding: 0.2em 0.7em;
+    border-radius: 0.4em;
+    font-size: 1em;
+    vertical-align: middle;
+    display: inline-block;
+    width: 80px;
+}
+.statusSymbol.pass {
+    background: #079455;
+    color: #fff;
+}
+.statusSymbol.fail {
+    background: #d92d20;
+    color: #fff;
+}
+.statusSymbol:before {
+    color: white;
+    margin-right: 10px;
+}
+.statusSymbol.fail:before {
+    content: 'X';
+}
+.statusSymbol.pass:before {
+    content: '✓';
+}
+
+/* Desktop/tablet enhancements */
+@media (min-width: 601px) {
+    .checker {
+        padding: 1rem;
+        z-index: 10;
+        position: fixed;
+        top: 1.5rem;
+        left: 1.5rem;
+        margin: 0;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        z-index: 10;
+    }
+    #randomizeColors {
+        width: auto;
+    }
+    #colorSwitch {
+        width: 44px;
+        height: 44px;
+        font-size: 1.5em;
+    }
+    #bgColorValue, #textColorValue {
+        font-size: 1.1em;
+    }
+}
