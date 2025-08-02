@@ -1,150 +1,158 @@
+/* Checker Tool Styles (Mobile-first) */
 .checker {
-    max-width: 98vw;
-    margin: 1rem auto;
-    padding: 0.7rem;
-    background: #fff;
-    border-radius: 1.25rem;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1.5px 6px rgba(0,0,0,0.08);
-    display: flex;
-    gap: 1.25rem;
-    font-family: 'Segoe UI', 'Arial', sans-serif;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
+  background: var(--checker-panel-alt);
+  box-shadow: 0 4px 24px rgb(var(--nes-black-rgb) / 10%), 0 1.5px 6px rgb(var(--nes-black-rgb) / 8%);
+  max-width: 340px;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: .75em;
 }
-#randomizeColors {
-    width: 100%;
+.checker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.checker label {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: #222;
-    letter-spacing: 0.01em;
+.checker-label {
+  color: var(--checker-label);
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  margin: 1rem 0;
+  text-shadow: 1px 1px 0 var(--nes-black);
 }
-.checker input[type="color"] {
-    width: 44px;
-    height: 44px;
-    border: none;
-    border-radius: 8px;
-    background: #f3f3f3;
-    margin-right: 0.5rem;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+.color-input {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--checker-border);
+  background: var(--checker-panel);
+  margin-right: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(var(--nes-black-rgb) / 12%);
+  appearance: none;
+  -webkit-appearance: none;
+  transition: box-shadow 0.2s;
 }
-.checker input[type="color"]:focus {
-    outline: 2px solid #2563eb;
-    outline-offset: 2px;
+.color-input:focus {
+  outline: 2px solid var(--checker-accent);
+  outline-offset: 2px;
 }
-#bgColorValue, #textColorValue {
-    font-family: monospace;
-    font-size: 1em;
-    margin-left: 0.5rem;
-    color: #444;
-    background: #f6f6f6;
-    padding: 0.15em 0.5em;
-    border-radius: 0.4em;
+.color-value {
+  color: var(--nes-white);
+  background: var(--checker-accent);
+  padding: 0.15em 0.5em;
 }
-#colorSwitch {
-    border: none;
-    background: #2563eb;
-    color: #fff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3em;
-    margin: 0.5rem 0;
-    cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+.color-switch {
+  border: 2px solid var(--checker-accent);
+  background: var(--checker-btn-bg);
+  color: var(--checker-btn-text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(var(--nes-black-rgb) / 12%);
+  transition: background 0.2s, box-shadow 0.2s;
 }
-#colorSwitch:focus {
-    outline: 2px solid #2563eb;
-    outline-offset: 2px;
-    background: #1749b1;
+.color-switch:focus,
+.color-switch:hover {
+  background: var(--checker-btn-bg-hover);
+  outline: 2px solid var(--checker-accent);
 }
-#randomizeColors {
-    background: #f59e42;
-    color: #fff;
-    border: none;
-    border-radius: 0.5em;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    transition: background 0.2s;
-}
-#randomizeColors:focus {
-    outline: 2px solid #f59e42;
-    outline-offset: 2px;
-    background: #c97a2b;
-}
-#contrastRatio {
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 0.2em 0.6em;
-    border-radius: 0.4em;
-    background: #f3f3f3;
-    color: #222;
+.switch-icon {
+  font-size: 24px;
+  display: inline-block;
+  height: 44px;
 }
 .randomizeColors_wrapper {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
+.randomize-btn {
+  width: 100%;
+  background: var(--checker-btn-accent);
+  color: var(--checker-btn-text);
+  border: 2px solid var(--checker-border);
+  padding: 0.6em 1.2em;
+  font-size: 1.25em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(var(--nes-black-rgb) / 12%);
+  text-shadow: 1px 1px 0 var(--nes-black);
+  transition: background 0.2s;
+}
+.randomize-btn:focus,
+.randomize-btn:hover {
+  background: var(--checker-btn-bg-hover);
+  color: var(--checker-btn-accent);
+  outline: 2px solid var(--checker-accent);
+}
+.contrast-ratio {
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: .5em;
+  border: 3px solid var(--checker-panel);
+  color: var(--checker-text);
+}
+.wcag-status,
 .statusSymbol {
-    font-weight: bold;
-    margin-left: 0.5em;
-    padding: 0.2em 0.7em;
-    border-radius: 0.4em;
-    font-size: 1em;
-    vertical-align: middle;
-    display: inline-block;
-    width: 80px;
+  font-weight: bold;
+  margin-left: 0.5em;
+  padding: 0.2em 0.7em;
+  font-size: 0.9em;
+  vertical-align: middle;
+  text-shadow: 1px 1px 0 var(--nes-black);
+  display: inline-block;
+  width: 80px;
 }
+.wcag-status.pass,
 .statusSymbol.pass {
-    background: #079455;
-    color: #fff;
+  background: var(--checker-pass);
+  color: var(--nes-black);
 }
+.wcag-status.fail,
 .statusSymbol.fail {
-    background: #d92d20;
-    color: #fff;
+  background: var(--checker-fail);
+  color: var(--nes-white);
 }
 .statusSymbol:before {
-    color: white;
-    margin-right: 10px;
+  color: var(--nes-white);
+  margin-right: 10px;
 }
 .statusSymbol.fail:before {
-    content: 'X';
+  content: 'X';
 }
 .statusSymbol.pass:before {
-    content: '✓';
+  content: '✓';
 }
-
-/* Desktop/tablet enhancements */
-@media (min-width: 601px) {
-    .checker {
-        padding: 1rem;
-        z-index: 10;
-        position: fixed;
-        top: 1.5rem;
-        left: 1.5rem;
-        margin: 0;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-        z-index: 10;
-    }
-    #randomizeColors {
-        width: auto;
-    }
-    #colorSwitch {
-        width: 44px;
-        height: 44px;
-        font-size: 1.5em;
-    }
-    #bgColorValue, #textColorValue {
-        font-size: 1.1em;
-    }
+/* Larger screen enhancements */
+@media (min-width: 1081px) {
+  .checker {
+    padding: 1rem;
+    z-index: 10;
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    margin: 0;
+    box-shadow: 0 8px 32px rgb(var(--nes-black-rgb) / 12%);
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .randomize-btn {
+    width: auto;
+  }
+  .color-switch {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5em;
+  }
+  .color-value {
+    font-size: 1.1em;
+  }
 }
