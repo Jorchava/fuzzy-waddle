@@ -1,0 +1,39 @@
+/* Visually hide but keep accessible for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Make visible when focused (for keyboard navigation) */
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  background: var(--nes-yellow-light);
+  color: var(--nes-black);
+  padding: 0.5em 1em;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+/* 4. Utility/Fallback Classes */
+.sampleBgColor {
+  background-color: var(--nes-black); /* fallback background */
+}
+.sampleTextColor {
+  color: var(--nes-white); /* fallback text color */
+}
+.sampleSwitchColor {
+  background-color: var(--nes-white); /* fallback switched background */
+  color: var(--nes-black); /* fallback switched text */
+}
