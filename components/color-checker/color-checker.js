@@ -26,23 +26,23 @@ class ColorChecker extends HTMLElement {
     updateContrastRatio(savedBgColor, savedTextColor);
 
     bgColorPicker.addEventListener('input', (event) => {
-      const bgColor = event.target.value;
-      const textColor = textColorPicker.value;
+      const bgColor = event.target.value.toUpperCase();
+      bgColorValue.value = bgColor;
       console.log('[ColorPicker] bgColorPicker input:', { bgColor, textColor });
-      applyColors(bgColor, textColor);
-      updateContrastRatio(bgColor, textColor);
+      applyColors(bgColor, textColorPicker.value);
+      updateContrastRatio(bgColor, textColorPicker.value);
       localStorage.setItem('bgColor', bgColor);
-      dispatchColorChange(bgColor, textColor);
+      dispatchColorChange(bgColor, textColorPicker.value);
     });
 
     textColorPicker.addEventListener('input', (event) => {
-      const textColor = event.target.value;
-      const bgColor = bgColorPicker.value;
+      const textColor = event.target.value.toUpperCase();
+      textColorValue.value = textColor;
       console.log('[ColorPicker] textColorPicker input:', { bgColor, textColor });
-      applyColors(bgColor, textColor);
-      updateContrastRatio(bgColor, textColor);
+      applyColors(bgColorPicker.value, textColor);
+      updateContrastRatio(bgColorPicker.value, textColor);
       localStorage.setItem('textColor', textColor);
-      dispatchColorChange(bgColor, textColor);
+      dispatchColorChange(bgColorPicker.value, textColor);
     });
 
     colorSwitch.addEventListener('click', () => {
@@ -67,6 +67,32 @@ class ColorChecker extends HTMLElement {
       dispatchColorChange(randomBgColor, randomTextColor);
     });
 
+    bgColorValue.addEventListener('input', () => {
+      const val = bgColorValue.value;
+      if (isValidHex(val)) {
+        bgColorPicker.value = val;
+        applyColors(val, textColorPicker.value);
+        updateContrastRatio(val, textColorPicker.value);
+        localStorage.setItem('bgColor', val);
+        dispatchColorChange(val, textColorPicker.value);
+      }
+    });
+
+    textColorValue.addEventListener('input', () => {
+      const val = textColorValue.value;
+      if (isValidHex(val)) {
+        textColorPicker.value = val;
+        applyColors(bgColorPicker.value, val);
+        updateContrastRatio(bgColorPicker.value, val);
+        localStorage.setItem('textColor', val);
+        dispatchColorChange(bgColorPicker.value, val);
+      }
+    });
+
+    function isValidHex(hex) {
+      return /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(hex);
+    }
+
     function dispatchColorChange(bgColor, textColor) {
       console.log('[ColorChecker] dispatchColorChange:', { bgColor, textColor });
       document.dispatchEvent(new CustomEvent('color-change', {
@@ -76,8 +102,8 @@ class ColorChecker extends HTMLElement {
 
     function applyColors(bgColor, textColor) {
       console.log('[ColorChecker] applyColors:', { bgColor, textColor });
-      bgColorValue.textContent = bgColor;
-      textColorValue.textContent = textColor;
+      bgColorValue.value = bgColor;
+      textColorValue.value = textColor;
       bgColorPicker.value = bgColor;
       textColorPicker.value = textColor;
     }

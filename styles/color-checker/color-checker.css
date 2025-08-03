@@ -44,6 +44,12 @@
   background: var(--checker-accent);
   padding: 0.15em 0.5em;
 }
+.color-value[type="text"] {
+  max-width: 90px;
+  font-family: monospace;
+  text-transform: uppercase;
+  text-align: left;
+}
 .color-switch {
   border: 2px solid var(--checker-accent);
   background: var(--checker-btn-bg);
@@ -153,6 +159,6 @@
     font-size: 1.5em;
   }
   .color-value {
-    font-size: 1.1em;
+    font-size: 1.55em;
   }
 }
