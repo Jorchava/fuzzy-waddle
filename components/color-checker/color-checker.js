@@ -1,6 +1,5 @@
 class ColorChecker extends HTMLElement {
   connectedCallback() {
-    console.log('[colorChecker] connectedCallBack')
     // Find elements inside this component
     const bgColorPicker = this.querySelector('#bgColor');
     const textColorPicker = this.querySelector('#textColor');
@@ -13,14 +12,12 @@ class ColorChecker extends HTMLElement {
     const textColorValue = this.querySelector('#textColorValue');
 
     if (!bgColorPicker || !textColorPicker) {
-      console.warn('[ColorChecker] Missing color picker elements');
       return;
     }
 
     // Load saved colors from localStorage
     const savedBgColor = localStorage.getItem('bgColor') || '#000000';
-    const savedTextColor = localStorage.getItem('textColor') || '#FFFFFF';
-    console.log('[ColorChecker] Loaded colors from storage:', {savedBgColor, savedTextColor});
+    const savedTextColor = localStorage.getItem('textColor') || '#FCFCFC';
     
     applyColors(savedBgColor, savedTextColor);
     updateContrastRatio(savedBgColor, savedTextColor);
@@ -28,7 +25,6 @@ class ColorChecker extends HTMLElement {
     bgColorPicker.addEventListener('input', (event) => {
       const bgColor = event.target.value.toUpperCase();
       bgColorValue.value = bgColor;
-      console.log('[ColorPicker] bgColorPicker input:', { bgColor, textColor });
       applyColors(bgColor, textColorPicker.value);
       updateContrastRatio(bgColor, textColorPicker.value);
       localStorage.setItem('bgColor', bgColor);
@@ -38,7 +34,6 @@ class ColorChecker extends HTMLElement {
     textColorPicker.addEventListener('input', (event) => {
       const textColor = event.target.value.toUpperCase();
       textColorValue.value = textColor;
-      console.log('[ColorPicker] textColorPicker input:', { bgColor, textColor });
       applyColors(bgColorPicker.value, textColor);
       updateContrastRatio(bgColorPicker.value, textColor);
       localStorage.setItem('textColor', textColor);
@@ -49,7 +44,6 @@ class ColorChecker extends HTMLElement {
       const tempColor = bgColorPicker.value;
       bgColorPicker.value = textColorPicker.value;
       textColorPicker.value = tempColor;
-      console.log('[ColorChecker] colorSwitch clicked:', { bgColor: bgColorPicker.value, textColor: textColorPicker.value });
       applyColors(bgColorPicker.value, textColorPicker.value);
       updateContrastRatio(bgColorPicker.value, textColorPicker.value);
       localStorage.setItem('bgColor', bgColorPicker.value);
@@ -59,7 +53,6 @@ class ColorChecker extends HTMLElement {
 
     randomizeButton.addEventListener('click', () => {
       const { randomBgColor, randomTextColor } = getRandomColorsWithFailureChance();
-      console.log('[ColorChecker] randomizeButton clicked:', { randomBgColor, randomTextColor });
       applyColors(randomBgColor, randomTextColor);
       updateContrastRatio(randomBgColor, randomTextColor);
       localStorage.setItem('bgColor', randomBgColor);
@@ -94,14 +87,12 @@ class ColorChecker extends HTMLElement {
     }
 
     function dispatchColorChange(bgColor, textColor) {
-      console.log('[ColorChecker] dispatchColorChange:', { bgColor, textColor });
       document.dispatchEvent(new CustomEvent('color-change', {
         detail: { bgColor, textColor }
       }));
     }
 
     function applyColors(bgColor, textColor) {
-      console.log('[ColorChecker] applyColors:', { bgColor, textColor });
       bgColorValue.value = bgColor;
       textColorValue.value = textColor;
       bgColorPicker.value = bgColor;
@@ -111,8 +102,6 @@ class ColorChecker extends HTMLElement {
     function updateContrastRatio(bgColor, textColor) {
       const contrastRatio = getContrastRatio(bgColor, textColor);
       const statusText = getStatusText(contrastRatio);
-
-      console.log('[ColorChecker] updateContrastRatio:', { bgColor, textColor, contrastRatio, statusText });
 
       contrastRatioDisplay.textContent = `${contrastRatio.toFixed(2)} ${statusText.text}`;
       contrastRatioDisplay.style.color = statusText.color;
@@ -139,12 +128,13 @@ class ColorChecker extends HTMLElement {
     }
 
     function getStatusText(contrastRatio) {
+      // WCAG AA and AAA compliance status colors from vars.css red: --nes-red | green: --nes-green-deep
       if (contrastRatio < 4.5) {
-        return { text: '(Poor)', color: '#d92d20', aaColor: '#d92d20', aaaColor: '#d92d20' };
+        return { text: '(Poor)', color: '#e40058', aaColor: '#e40058', aaaColor: '#e40058' };
       } else if (contrastRatio >= 4.5 && contrastRatio < 7.0) {
-        return { text: '(Good)', color: '#079455', aaColor: '#079455', aaaColor: '#d92d20' };
+        return { text: '(Good)', color: '#00a800', aaColor: '#00a800', aaaColor: '#e40058' };
       } else {
-        return { text: '(Very Good)', color: '#079455', aaColor: '#079455', aaaColor: '#079455' };
+        return { text: '(Very Good)', color: '#00a800', aaColor: '#00a800', aaaColor: '#00a800' };
       }
     }
 

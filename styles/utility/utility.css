@@ -37,3 +37,13 @@
   background-color: var(--nes-white); /* fallback switched background */
   color: var(--nes-black); /* fallback switched text */
 }
+
+/* External links */
+.external-link {
+  display: inline-block;
+}
+.external-link svg {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}

@@ -115,19 +115,17 @@
   text-shadow: 1px 1px 0 var(--nes-black);
   display: inline-block;
   width: 80px;
+  color: var(--nes-white);
 }
 .wcag-status.pass,
 .statusSymbol.pass {
   background: var(--checker-pass);
-  color: var(--nes-black);
 }
 .wcag-status.fail,
 .statusSymbol.fail {
   background: var(--checker-fail);
-  color: var(--nes-white);
 }
 .statusSymbol:before {
-  color: var(--nes-white);
   margin-right: 10px;
 }
 .statusSymbol.fail:before {

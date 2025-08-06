@@ -71,6 +71,6 @@
   --checker-btn-bg-hover: var(--nes-blue-light);
   --checker-btn-text: var(--nes-white);
   --checker-btn-accent: var(--nes-yellow);
-  --checker-pass: var(--nes-green-medium);
+  --checker-pass: var(--nes-green-deep);
   --checker-fail: var(--nes-red);
 }

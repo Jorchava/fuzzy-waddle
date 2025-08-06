@@ -1,8 +1,8 @@
-# ContrAst: The ADA Wars – NES-Inspired Accessibility Color Checker
+# ContrAst: The Color Wars – NES-Inspired Accessibility Color Checker
 
 Welcome, digital commandos!  
-Suit up with **Bill Rizer** (UX) and **Lance Bean** (UI) as you blast your way through the jungle of inaccessible color combos.  
-**ContrAst: The ADA Wars** is your NES-inspired color contrast checker, helping you defeat the Red Falcon of poor accessibility and win the battle for inclusive design.
+Suit up with **Bug Raiser** (UX) and **Launch Beans** (UI) as you blast your way through the jungle of inaccessible color combos.  
+**ContrAst: The Color Wars** is your NES-inspired color contrast checker, helping you defeat the Red Falcon of poor color contrast and win the battle for inclusive design.
 
 ---
 
@@ -17,10 +17,10 @@ It helps designers and developers ensure their color choices meet [WCAG 2.1](htt
 
 - **Live Color Contrast Checking:** Instantly see the contrast ratio and WCAG AA/AAA compliance as you pick colors.
 - **Randomizer:** Hit "Randomize Colors" for a surprise challenge—will you get a power-up or a pitfall?
-- **Sample UI Previews:** See your color choices applied to sample navigation, masthead, and blog card components.
+- **Sample UI Previews:** See your color choices applied to sample masthead, and blog card components.
 - **Accessible & SEO-Friendly:** Semantic HTML, ARIA labels, skip links, and progressive enhancement.
 - **Mobile-First, Widget-Like UI:** The checker tool is compact and always accessible, even on small screens.
-- **NES/Contra Humor:** Bill Rizer and Lance Bean represent UX and UI, guiding you through the battle for accessible design.
+- **NES/Contra Humor:** Bug Raiser and Launch Beans represent UX and UI, guiding you through the battle for accessible design.
 
 ---
 
@@ -47,20 +47,20 @@ It helps designers and developers ensure their color choices meet [WCAG 2.1](htt
 ## 📦 Project Structure
 
 ```
+/assets
 /components
   /color-checker
-    color-checker.js
   /masthead-component
-    masthead-component.js
   /blog-card
-    blog-card.js
 /styles
+  /blog-card
   /global
-    global.css
   /color-checker
-    color-checker.css
+  /masthead-component
+  /utility
 index.html
 main.js
+main.css
 README.md
 ```
 
@@ -69,7 +69,7 @@ README.md
 ## ♿ Accessibility & SEO
 
 - Semantic HTML structure
-- ARIA labels and skip links
+- ARIA labels and skip link
 - Accessible color contrast and focus states
 - Descriptive alt text for images
 - Mobile-first responsive design
@@ -79,7 +79,16 @@ README.md
 
 ## 📝 License
 
-MIT License
+Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
+
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
+
+[![CC BY 4.0][cc-by-image]][cc-by]
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
 ---
 

@@ -4,31 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ContrAst: The ADA Wars – NES-Inspired Accessibility Color Checker</title>
+    <title>ContrAst: The Color Wars – NES-Inspired Accessibility Color Checker</title>
     <meta name="description"
-        content="ContrAst: The ADA Wars – A retro NES-inspired color contrast checker for web accessibility. Join Bill Rizer (UX) and Lance Bean (UI) to defeat inaccessible color combos and win the ADA battle!">
+        content="ContrAst: The Color Wars – A retro NES-inspired color contrast checker for web accessibility. Join Bug Raiser (UX) and Launch Beans (UI) to defeat inaccessible color combos and win the Accessibility battle!">
     <link rel="stylesheet" href="main.css">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAq6urAAAA5gB8fH0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREREAAAAAAAAAAAAAAwMDAAAAADAAAAAAICADMwMzMwAAAAAwAAAAAAAAAAADMzMAAAAREREREREREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7/AAD+/wAA/38AAP+/AAD/vwAA" rel="icon" type="image/x-icon">
 </head>
 
 <body>
     <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
     <header>
-        <h1 id="main-content">ContrAst: The ADA Wars</h1>
+        <h1 id="main-content">ContrAst: The Color Wars</h1>
         <p>
-            <strong>Welcome, digital commandos!</strong> Suit up with <span title="UX">Bill Rizer</span> and <span
-                title="UI">Lance Bean</span> as you blast your way through the jungle of inaccessible color combos.<br>
-            <em>ContrAst: The ADA Wars</em> is your NES-inspired color contrast checker, helping you defeat the Red
+            <strong>Welcome, digital commandos!</strong> Suit up with <span title="UX">Bug Raiser</span> and <span
+                title="UI">Launch Beans</span> as you blast your way through the jungle of inaccessible color combos.<br>
+            <em>ContrAst: The Color Wars</em> is your <abbr title="Nintendo Entertainment System">NES</abbr>-inspired
+            color contrast checker, helping you defeat the Red
             Falcon of poor accessibility and win the battle for inclusive design.<br>
             <br>
         </p>
         <h2><strong>How to play:</strong></h2>
         <ul>
             <li>Pick your <b>background</b> and <b>text</b> colors using the color pickers below.</li>
-            <li>Check your <b>contrast ratio</b> and see if you meet the <a
-                    href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener">WCAG 2.1</a>
-                AA/AAA standards.</li>
+            <li>Check your <b>contrast ratio</b> and see if you meet the
+                <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener"
+                    class="external-link">
+                    <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1
+                    <svg width="16" height="16" viewBox="0 0 24 24">
+                        <title>Open in new window</title>
+                        <path
+                            d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z">
+                        </path>
+                    </svg>
+                </a>
+                AA/AAA standards.
+            </li>
             <li>Hit <b>Randomize Colors</b> for a surprise challenge—will you get a power-up or a pitfall?</li>
-            <li>Watch as Bill (UX) and Lance (UI) update the sample UI components below, showing you the real impact of
+            <li>Watch as Bug (<abbr title="User Experience">UX</abbr>) and Launch (<abbr title="User Interface">UI</abbr>) update the sample UI components below, showing you the real impact of
                 your color choices.</li>
         </ul>
         <span>Ready? <b>Let’s CONTRAST!</b></span>
@@ -78,9 +90,9 @@
                 <div class="masthead_title-wrapper">
                     <h3>Mission Briefing</h3>
                 </div>
-                <div class="masthead_img-wrapper">
-                    <img src="jorchava.png"
-                        alt="Pixel art avatar of Bill Rizer and Lance Bean, ready for accessibility action">
+                <div class="masthead_img-wrapper sampleBgColor">
+                    <img src="assets/avatar-hermanos-brothers-320x320-contra.png"
+                        alt="Pixel art avatar of Bug Raiser and Launch Beans, ready for accessibility action">
                 </div>
                 <div class="masthead_subtitle-wrapper">
                     <h3>Blast Through Inaccessible Design</h3>
@@ -94,19 +106,19 @@
                 <div class="masthead_overlay-1 sampleBgColor"></div>
                 <div class="masthead_overlay-2 sampleBgColor"></div>
             </masthead-component>
-            <blog-card class="blog-card sampleSwitchColor" role="region" aria-label="Blog Card: Power-Up ADA Colors">
+            <blog-card class="blog-card sampleSwitchColor" role="region"
+                aria-label="Blog Card: Power-Up Accessibility Colors">
                 <div class="meta">
-                    <div class="photo" style="background-image: url(https://picsum.photos/799/533)"
-                        aria-label="Sample photo"></div>
+                    <div class="photo" style="background-image: url(assets/blob-card-contrast-ux-ui-1.png)"></div>
                     <ul class="details sampleSwitchColor">
-                        <li><a href="#">Power-Up: ADA Colors</a></li>
+                        <li><b>Power-Up: Accessibility Colors</b></li>
                         <li>2633 d. C. Galuga, New Zealand.</li>
                         <li>
                             <ul>
-                                <li><a href="#">DOM Upgrades</a></li>
-                                <li><a href="#">UX/UI</a></li>
-                                <li><a href="#">Components</a></li>
-                                <li><a href="#">UI with New Colors</a></li>
+                                <li><b>DOM Upgrades</b></li>
+                                <li><b>UX/UI</b></li>
+                                <li><b>Components</b></li>
+                                <li><b>UI with New Colors</b></li>
                             </ul>
                         </li>
                     </ul>
@@ -115,10 +127,11 @@
                     <h3>Randomizer</h3>
                     <p><strong>Click on the Randomize Colors button</strong></p>
                     <p>Will you get a spread shot of accessible combos, or fall into a pit of poor contrast? Try your
-                        luck and see how Bill and Lance handle the challenge!</p>
+                        luck and see how Bug and Launch handle the challenge!</p>
                     <p class="read-more">
-                        <a href="#">Read More
-                            <span class="sr-only">, about the randomizer functionality</span>
+                        <a href="README.md">
+                            Explore the randomizer functionality
+                            <span class="sr-only"> (opens readme document)</span>
                         </a>
                     </p>
                 </div>
@@ -126,16 +139,15 @@
             <blog-card class="blog-card alt sampleBgColor sampleTextColor" role="region"
                 aria-label="Blog Card: Earth Marine Corp">
                 <div class="meta">
-                    <div class="photo" style="background-image: url(https://picsum.photos/799/533?grayscale)"
-                        aria-label="Sample grayscale photo"></div>
+                    <div class="photo" style="background-image: url(/assets/blob-card-contrast-2.png)"></div>
                     <ul class="details sampleBgColor sampleTextColor">
-                        <li><a href="#">Earth Marine Corp</a></li>
+                        <li><b>Earth Marine Corp</b></li>
                         <li>1988</li>
                         <li>
                             <ul>
-                                <li><a href="#">Hex</a></li>
-                                <li><a href="#">HSLA</a></li>
-                                <li><a href="#">WCAG 2.1</a></li>
+                                <li>Hex</li>
+                                <li>HSLA</li>
+                                <li>WCAG 2.1</li>
                             </ul>
                         </li>
                     </ul>
@@ -146,10 +158,11 @@
                     <p>Elements with <code>.sampleBgColor</code> update their background color,
                         <code>.sampleTextColor</code> their text color, and <code>.sampleSwitchColor</code> inverts the
                         colors.
-                        Just like switching weapons, pick the right combo for the right situation!</p>
+                        Just like switching weapons, pick the right combo for the right situation!
+                    </p>
                     <p class="read-more">
-                        <a href="#">Read More
-                            <span class="sr-only">, about the selective bg color picker functionality</span>
+                        <a href="README.md/#features">
+                            Learn about the selective bg color picker functionality
                         </a>
                     </p>
                 </div>
@@ -157,8 +170,16 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 ContrAst: The ADA Wars. <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener">Learn
-                more about web accessibility</a>.
+        <p>&copy CC BY 4.0 ContrAst: The Color Wars.
+            <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener" class="external-link">
+                Learn more about web accessibility
+                <svg width="12" height="12" viewBox="0 0 24 24">
+                    <title>Open in new window</title>
+                    <path
+                        d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z">
+                    </path>
+                </svg>
+            </a>.
             <span aria-hidden="true" title="Konami Code">↑ ↑ ↓ ↓ ← → ← → B A</span>
         </p>
     </footer>

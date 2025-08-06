@@ -27,9 +27,6 @@ img, picture, video, canvas, svg {
 input, button, textarea, select {
   font: inherit;
 }
-a {
-  color: inherit;
-}
 button {
   background: none;
   border: none;
