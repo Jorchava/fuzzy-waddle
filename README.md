@@ -24,6 +24,12 @@ It helps designers and developers ensure their color choices meet [WCAG 2.1](htt
 - **Mobile-First, Widget-Like UI:** The checker tool is compact and always accessible, even on small screens.
 - **NES/Contra Humor:** Bug Raiser and Launch Beans represent UX and UI, guiding you through the battle for accessible design.
 
+- **Next features:** 
+1. small and large text compliance feedback 
+2. bg and text color alternatives - suggestions like 
+3. combine 1 and 2 into a hamburguer off canva menu, or other
+4. fix an issue with (3) hex colors
+
 ---
 
 ## 🕹️ How to Play
