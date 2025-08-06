@@ -1,6 +1,6 @@
 # ContrAst: The Color Wars – NES-Inspired Accessibility Color Checker
 
-![contrast the color wars full page screenshot](assets\lp-screenshot-contrast-the-color-wars.png?raw=true "contrast the color wars full page screenshot")
+![contrast the color wars full page screenshot](/assets/lp-screenshot-contrast-the-color-wars.png?raw=true "contrast the color wars full page screenshot")
 
 Welcome, digital commandos!  
 Suit up with **Bug Raiser** (UX) and **Launch Beans** (UI) as you blast your way through the jungle of inaccessible color combos.  
