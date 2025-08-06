@@ -1,118 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Accessibility Checker tool UX/UI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ContrAst: The Color Wars – NES-Inspired Accessibility Color Checker</title>
+    <meta name="description"
+        content="ContrAst: The Color Wars – A retro NES-inspired color contrast checker for web accessibility. Join Bug Raiser (UX) and Launch Beans (UI) to defeat inaccessible color combos and win the Accessibility battle!">
+    <link rel="stylesheet" href="main.css">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAq6urAAAA5gB8fH0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREREAAAAAAAAAAAAAAwMDAAAAADAAAAAAICADMwMzMwAAAAAwAAAAAAAAAAADMzMAAAAREREREREREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7/AAD+/wAA/38AAP+/AAD/vwAA" rel="icon" type="image/x-icon">
 </head>
-<body>
-    <!-- Web Accessibility Checker tool UX/UI -->
-        <main class="checker">
-            <label for="bgColor">Background Color:</label>
-            <input type="color" id="bgColor" name="bgColor" value="#000000" aria-label="Background color picker">
-            <span id="bgColorValue">#000000</span> <!-- Hex value for background -->
-        
-            <label for="textColor">Text Color:</label>
-            <input type="color" id="textColor" name="textColor" value="#FFFFFF" aria-label="Text color picker">
-            <span id="textColorValue">#FFFFFF</span> <!-- Hex value for text -->
 
-            <button id="colorSwitch" aria-label="Switch Background and Text Color">
-                <span class="switch-icon" aria-hidden="true">⇆</span>
-            </button>
-        
-            <div>Contrast Ratio: <span id="contrastRatio"></span></div>
-            <p>WCAG Status:
-                <span id="wcagStatusAA" class="statusSymbol">AA</span>
-                <span id="wcagStatusAAA" class="statusSymbol">AAA</span>
-            </p>
-            <div class="randomizeColors_wrapper">
-                <button id="randomizeColors">Randomize Colors</button>
-            </div>
-        </main>
-    <!-- down here use any components or anything as long as you set the css classes to update and check against wcag -->
-    <section class="component-wrappers checker">
-        <nav class="nav-component">
-            <ul>
-                <li class="sampleBgColor sampleTextColor"><a href="#">About</a></li>
-                <li class="sampleBgColor sampleTextColor"><a href="#">News</a></li>
-                <li class="sampleBgColor sampleTextColor"><a href="#">Jobs</a></li>
-                <li class="sampleBgColor sampleTextColor"><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <header class="masthead-component sampleBgColor sampleTextColor">
-            <div class="masthead-component_title-wrapper">
-                <h1>Web Accessibility Checker</h1>
-            </div>
-            <div class="masthead-component_img-wrapper">
-                <img src="jorchava.png" alt="jorchava pixel art avatar">
-            </div>
-            <div class="masthead-component_subtitle-wrapper">
-                <h2>Checker tools for UX/UI samples</h2>
-                <p>
-                    This tool allos you to update using a color pickers the colors of some elements with specific classes and displays information about accessibility standards based on the color selections.
-                    Up next to implement: More accessibility checks, such as font size, readable colors, or ARIA 
-                    (Accessible Rich Internet Applications) compliance checks. 3 foreground 
-                    and background suggestions potentially this would be in a sidebar that opens up for more tools. Upgrade to a modern and better UI.
-                </p>
-            </div>
-            <div class="masthead-component_overlay-1 sampleBgColor"></div>
-            <div class="masthead-component_overlay-2 sampleBgColor"></div>
-        </header>
-        <div class="blog-card sampleSwitchColor">
-            <div class="meta">
-              <div class="photo" style="background-image: url(https://picsum.photos/799/533)"></div>
-              <ul class="details sampleSwitchColor">
-                <li><a href="#">ADA colors</a></li>
-                <li>Oct. 20, 2024</li>
-                <li>
-                  <ul>
-                    <li><a href="#">Update the actual DOM elements</a></li>
-                    <li><a href="#">UX/UI</a></li>
-                    <li><a href="#">Components</a></li>
-                    <li><a href="#">UI with the new colors</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div class="description sampleSwitchColor">
-              <h2>Randomizer</h2>
-              <h3>Click on the Randomize Colors button</h3>
-              <p>It will give you a combination of two new colors and the hex values will change immediately to reflect the selected colors updating the texts next to the color pickers and UI.</p>
-              <p class="read-more">
-                <a href="#">Read More
-                    <span class="sr-only">, about the randomizer functionality</span>
+<body>
+    <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <header>
+        <h1 id="main-content">ContrAst: The Color Wars</h1>
+        <p>
+            <strong>Welcome, digital commandos!</strong> Suit up with <span title="UX">Bug Raiser</span> and <span
+                title="UI">Launch Beans</span> as you blast your way through the jungle of inaccessible color combos.<br>
+            <em>ContrAst: The Color Wars</em> is your <abbr title="Nintendo Entertainment System">NES</abbr>-inspired
+            color contrast checker, helping you defeat the Red
+            Falcon of poor accessibility and win the battle for inclusive design.<br>
+            <br>
+        </p>
+        <h2><strong>How to play:</strong></h2>
+        <ul>
+            <li>Pick your <b>background</b> and <b>text</b> colors using the color pickers below.</li>
+            <li>Check your <b>contrast ratio</b> and see if you meet the
+                <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener"
+                    class="external-link">
+                    <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1
+                    <svg width="16" height="16" viewBox="0 0 24 24">
+                        <title>Open in new window</title>
+                        <path
+                            d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z">
+                        </path>
+                    </svg>
                 </a>
-              </p>
-            </div>
-          </div>
-          <div class="blog-card alt sampleBgColor sampleTextColor">
-            <div class="meta">
-              <div class="photo" style="background-image: url(https://picsum.photos/799/533?grayscale)"></div>
-              <ul class="details sampleBgColor sampleTextColor">
-                <li><a href="#">Random Ice</a></li>
-                <li>October. 24, 2024</li>
-                <li>
-                  <ul>
-                    <li><a href="#">Hex</a></li>
-                    <li><a href="#">HSLA</a></li>
-                    <li><a href="#">WCAG 2.1</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div class="description sampleBgColor">
-              <h2>Selective background color</h2>
-              <h3>JavaScript, AAA</h3>
-              <p>The components's elements with the CSS class .sampleBgColor will update its background color, the elements with .sampleTextColor its text color, but the sampleSwitchColor is used to invert the colors.</p>
-              <p class="read-more">
-                <a href="#">Read More
-                    <span class="sr-only">, about the selective bg color picker functionality</span>
-                </a>
-              </p>
-            </div>
-          </div>
-    </section>
-    <script src="script.js"></script>
+                AA/AAA standards.
+            </li>
+            <li>Hit <b>Randomize Colors</b> for a surprise challenge—will you get a power-up or a pitfall?</li>
+            <li>Watch as Bug (<abbr title="User Experience">UX</abbr>) and Launch (<abbr title="User Interface">UI</abbr>) update the sample UI components below, showing you the real impact of
+                your color choices.</li>
+        </ul>
+        <span>Ready? <b>Let’s CONTRAST!</b></span>
+    </header>
+    <main>
+        <color-checker role="region" aria-label="Color Contrast Checker">
+            <form class="checker" aria-label="ContrAst color contrast checker">
+                <fieldset>
+                    <legend>Choose Colors</legend>
+                    <div class="checker-row">
+                        <label for="bgColor" class="checker-label">Background Color:</label>
+                        <input type="color" id="bgColor" class="color-input" name="bgColor" value="#000000"
+                            aria-describedby="bgColorValue">
+                        <input type="text" id="bgColorValue" class="color-value" value="#000000" maxlength="7"
+                            aria-label="Background color hex value">
+                    </div>
+                    <div class="checker-row">
+                        <label for="textColor" class="checker-label">Text Color:</label>
+                        <input type="color" id="textColor" class="color-input" name="textColor" value="#FFFFFF"
+                            aria-describedby="textColorValue">
+                        <input type="text" id="textColorValue" class="color-value" value="#FFFFFF" maxlength="7"
+                            aria-label="Text color hex value">
+                    </div>
+                    <div class="checker-row">
+                        <button type="button" id="colorSwitch" class="color-switch"
+                            aria-label="Switch background and text color">
+                            <span class="switch-icon" aria-hidden="true">⇆</span>
+                        </button>
+                    </div>
+                </fieldset>
+                <div class="checker-row">
+                    <span>Contrast Ratio: <span id="contrastRatio" class="contrast-ratio"></span></span>
+                </div>
+                <div class="checker-row">
+                    <span>WCAG Status:</span>
+                    <span id="wcagStatusAA" class="statusSymbol wcag-status">AA</span>
+                    <span id="wcagStatusAAA" class="statusSymbol wcag-status">AAA</span>
+                </div>
+                <div class="randomizeColors_wrapper checker-row">
+                    <button type="button" id="randomizeColors" class="randomize-btn">Randomize Colors</button>
+                </div>
+            </form>
+        </color-checker>
+        <section class="component-wrappers" aria-label="Sample UI components">
+            <masthead-component class="masthead sampleBgColor sampleTextColor" role="region"
+                aria-label="Mission Briefing">
+                <div class="masthead_title-wrapper">
+                    <h3>Mission Briefing</h3>
+                </div>
+                <div class="masthead_img-wrapper sampleBgColor">
+                    <img src="assets/avatar-hermanos-brothers-320x320-contra.png"
+                        alt="Pixel art avatar of Bug Raiser and Launch Beans, ready for accessibility action">
+                </div>
+                <div class="masthead_subtitle-wrapper">
+                    <h3>Blast Through Inaccessible Design</h3>
+                    <p>
+                        Your mission: Use the ContrAst tool to ensure your UI colors are accessible to all players.
+                        Adjust the color pickers, check the contrast, and see the results instantly on the sample UI
+                        below.
+                        Remember, only the strongest (and most accessible) color combos survive!
+                    </p>
+                </div>
+                <div class="masthead_overlay-1 sampleBgColor"></div>
+                <div class="masthead_overlay-2 sampleBgColor"></div>
+            </masthead-component>
+            <blog-card class="blog-card sampleSwitchColor" role="region"
+                aria-label="Blog Card: Power-Up Accessibility Colors">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(assets/blob-card-contrast-ux-ui-1.png)"></div>
+                    <ul class="details sampleSwitchColor">
+                        <li><b>Power-Up: Accessibility Colors</b></li>
+                        <li>2633 d. C. Galuga, New Zealand.</li>
+                        <li>
+                            <ul>
+                                <li><b>DOM Upgrades</b></li>
+                                <li><b>UX/UI</b></li>
+                                <li><b>Components</b></li>
+                                <li><b>UI with New Colors</b></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="description sampleSwitchColor">
+                    <h3>Randomizer</h3>
+                    <p><strong>Click on the Randomize Colors button</strong></p>
+                    <p>Will you get a spread shot of accessible combos, or fall into a pit of poor contrast? Try your
+                        luck and see how Bug and Launch handle the challenge!</p>
+                    <p class="read-more">
+                        <a href="README.md">
+                            Explore the randomizer functionality
+                            <span class="sr-only"> (opens readme document)</span>
+                        </a>
+                    </p>
+                </div>
+            </blog-card>
+            <blog-card class="blog-card alt sampleBgColor sampleTextColor" role="region"
+                aria-label="Blog Card: Earth Marine Corp">
+                <div class="meta">
+                    <div class="photo" style="background-image: url(/assets/blob-card-contrast-2.png)"></div>
+                    <ul class="details sampleBgColor sampleTextColor">
+                        <li><b>Earth Marine Corp</b></li>
+                        <li>1988</li>
+                        <li>
+                            <ul>
+                                <li>Hex</li>
+                                <li>HSLA</li>
+                                <li>WCAG 2.1</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="description sampleBgColor sampleTextColor">
+                    <h3>Selective Background Color</h3>
+                    <p><strong>JavaScript, AAA</strong></p>
+                    <p>Elements with <code>.sampleBgColor</code> update their background color,
+                        <code>.sampleTextColor</code> their text color, and <code>.sampleSwitchColor</code> inverts the
+                        colors.
+                        Just like switching weapons, pick the right combo for the right situation!
+                    </p>
+                    <p class="read-more">
+                        <a href="README.md/#features">
+                            Learn about the selective bg color picker functionality
+                        </a>
+                    </p>
+                </div>
+            </blog-card>
+        </section>
+    </main>
+    <footer>
+        <p>&copy CC BY 4.0 ContrAst: The Color Wars.
+            <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener" class="external-link">
+                Learn more about web accessibility
+                <svg width="12" height="12" viewBox="0 0 24 24">
+                    <title>Open in new window</title>
+                    <path
+                        d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z">
+                    </path>
+                </svg>
+            </a>.
+            <span aria-hidden="true" title="Konami Code">↑ ↑ ↓ ↓ ← → ← → B A</span>
+        </p>
+    </footer>
+    <script type="module" src="main.js"></script>
 </body>
+
 </html>

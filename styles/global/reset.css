@@ -1,0 +1,46 @@
+/* 3. Modern CSS Reset */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background: var(--nes-light-gray);
+  color: var(--nes-black);
+  line-height: 1.6;
+  font-size: .75rem;
+  font-family: 'Press Start 2P', 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+ul li {
+  list-style: none;
+}
+fieldset {
+  border: none;
+  padding: 0;
+}
+/* Color input swatch reset for browsers */
+::-webkit-color-swatch,
+::-moz-color-swatch {
+  border-color: var(--checker-border);
+}

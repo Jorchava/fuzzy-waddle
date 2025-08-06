@@ -1,0 +1,67 @@
+.masthead {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    min-height: 500px;
+    overflow: hidden;
+}
+.masthead_title-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 2;
+}
+.masthead_img-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 62px;
+}
+.masthead_subtitle-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px;
+    z-index: 3;
+}
+.masthead img {
+    mix-blend-mode: luminosity;
+}
+.masthead h3 {
+    font-size: 1.1em;
+    margin: 0;
+}
+.masthead p {
+    font-size: .9em;
+}
+.masthead_overlay-1 {
+    position: absolute;
+    bottom: -40px;
+    filter: blur(60px);
+    height: 320px;
+    z-index: 2;
+    width: 100%;
+}
+.masthead_overlay-2 {
+    position: absolute;
+    bottom: -150px;
+    filter: blur(32px);
+    height: 360px;
+    z-index: 2;
+    width: 100%;
+}
+@media (min-width: 1366px) {
+    .masthead {
+        min-height: 760px;
+    }
+    .masthead h3 {
+        font-size: 3.1em;
+    }
+    .masthead p {
+        font-size: 1.3em;
+    }
+}

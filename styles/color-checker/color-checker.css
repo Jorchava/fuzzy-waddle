@@ -1,0 +1,162 @@
+/* Checker Tool Styles (Mobile-first) */
+.checker {
+  background: var(--checker-panel-alt);
+  box-shadow: 0 4px 24px rgb(var(--nes-black-rgb) / 10%), 0 1.5px 6px rgb(var(--nes-black-rgb) / 8%);
+  max-width: 340px;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: .75em;
+}
+.checker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.checker-label {
+  color: var(--checker-label);
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  margin: 1rem 0;
+  text-shadow: 1px 1px 0 var(--nes-black);
+}
+.color-input {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--checker-border);
+  background: var(--checker-panel);
+  margin-right: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(var(--nes-black-rgb) / 12%);
+  appearance: none;
+  -webkit-appearance: none;
+  transition: box-shadow 0.2s;
+}
+.color-input:focus {
+  outline: 2px solid var(--checker-accent);
+  outline-offset: 2px;
+}
+.color-value {
+  color: var(--nes-white);
+  background: var(--checker-accent);
+  padding: 0.15em 0.5em;
+}
+.color-value[type="text"] {
+  max-width: 90px;
+  font-family: monospace;
+  text-transform: uppercase;
+  text-align: left;
+}
+.color-switch {
+  border: 2px solid var(--checker-accent);
+  background: var(--checker-btn-bg);
+  color: var(--checker-btn-text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(var(--nes-black-rgb) / 12%);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.color-switch:focus,
+.color-switch:hover {
+  background: var(--checker-btn-bg-hover);
+  outline: 2px solid var(--checker-accent);
+}
+.switch-icon {
+  font-size: 24px;
+  display: inline-block;
+  height: 44px;
+}
+.randomizeColors_wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.randomize-btn {
+  width: 100%;
+  background: var(--checker-btn-accent);
+  color: var(--checker-btn-text);
+  border: 2px solid var(--checker-border);
+  padding: 0.6em 1.2em;
+  font-size: 1.25em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(var(--nes-black-rgb) / 12%);
+  text-shadow: 1px 1px 0 var(--nes-black);
+  transition: background 0.2s;
+}
+.randomize-btn:focus,
+.randomize-btn:hover {
+  background: var(--checker-btn-bg-hover);
+  color: var(--checker-btn-accent);
+  outline: 2px solid var(--checker-accent);
+}
+.contrast-ratio {
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: .5em;
+  border: 3px solid var(--checker-panel);
+  color: var(--checker-text);
+}
+.wcag-status,
+.statusSymbol {
+  font-weight: bold;
+  margin-left: 0.5em;
+  padding: 0.2em 0.7em;
+  font-size: 0.9em;
+  vertical-align: middle;
+  text-shadow: 1px 1px 0 var(--nes-black);
+  display: inline-block;
+  width: 80px;
+  color: var(--nes-white);
+}
+.wcag-status.pass,
+.statusSymbol.pass {
+  background: var(--checker-pass);
+}
+.wcag-status.fail,
+.statusSymbol.fail {
+  background: var(--checker-fail);
+}
+.statusSymbol:before {
+  margin-right: 10px;
+}
+.statusSymbol.fail:before {
+  content: 'X';
+}
+.statusSymbol.pass:before {
+  content: '✓';
+}
+/* Larger screen enhancements */
+@media (min-width: 1081px) {
+  .checker {
+    padding: 1rem;
+    z-index: 10;
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    margin: 0;
+    box-shadow: 0 8px 32px rgb(var(--nes-black-rgb) / 12%);
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .randomize-btn {
+    width: auto;
+  }
+  .color-switch {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5em;
+  }
+  .color-value {
+    font-size: 1.55em;
+  }
+}
