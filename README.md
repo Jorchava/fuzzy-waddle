@@ -1,5 +1,7 @@
 # ContrAst: The Color Wars – NES-Inspired Accessibility Color Checker
 
+![contrast the color wars full page screenshot](/assets/lp-screenshot-contrast-the-color-wars.png?raw=true "contrast the color wars full page screenshot")
+
 Welcome, digital commandos!  
 Suit up with **Bug Raiser** (UX) and **Launch Beans** (UI) as you blast your way through the jungle of inaccessible color combos.  
 **ContrAst: The Color Wars** is your NES-inspired color contrast checker, helping you defeat the Red Falcon of poor color contrast and win the battle for inclusive design.
@@ -21,6 +23,12 @@ It helps designers and developers ensure their color choices meet [WCAG 2.1](htt
 - **Accessible & SEO-Friendly:** Semantic HTML, ARIA labels, skip links, and progressive enhancement.
 - **Mobile-First, Widget-Like UI:** The checker tool is compact and always accessible, even on small screens.
 - **NES/Contra Humor:** Bug Raiser and Launch Beans represent UX and UI, guiding you through the battle for accessible design.
+
+- **Next features:** 
+1. small and large text compliance feedback 
+2. bg and text color alternatives - suggestions like 
+3. combine 1 and 2 into a hamburguer off canva menu, or other
+4. fix an issue with (3) hex colors
 
 ---
 
