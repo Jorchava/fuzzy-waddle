@@ -1,7 +1,9 @@
 /* Checker Tool Styles (Mobile-first) */
 .checker {
   background: var(--checker-panel-alt);
-  box-shadow: 0 4px 24px rgb(var(--nes-black-rgb) / 10%), 0 1.5px 6px rgb(var(--nes-black-rgb) / 8%);
+  box-shadow:
+    0 4px 24px rgb(var(--nes-black-rgb) / 10%),
+    0 1.5px 6px rgb(var(--nes-black-rgb) / 8%);
   max-width: 340px;
   width: 100%;
   margin: 1rem auto;
@@ -9,7 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  font-size: .75em;
+  font-size: 0.75em;
 }
 .checker-row {
   display: flex;
@@ -63,7 +65,9 @@
   margin: 0.5rem 0;
   cursor: pointer;
   box-shadow: 0 1px 4px rgb(var(--nes-black-rgb) / 12%);
-  transition: background 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
 }
 .color-switch:focus,
 .color-switch:hover {
@@ -101,7 +105,7 @@
 .contrast-ratio {
   font-weight: bold;
   font-size: 0.9em;
-  padding: .5em;
+  padding: 0.5em;
   border: 3px solid var(--checker-panel);
   color: var(--checker-text);
 }
@@ -129,17 +133,16 @@
   margin-right: 10px;
 }
 .statusSymbol.fail:before {
-  content: 'X';
+  content: "X";
 }
 .statusSymbol.pass:before {
-  content: '✓';
+  content: "✓";
 }
 /* Larger screen enhancements */
 @media (min-width: 1081px) {
   .checker {
     padding: 1rem;
     z-index: 10;
-    position: fixed;
     top: 1.5rem;
     left: 1.5rem;
     margin: 0;

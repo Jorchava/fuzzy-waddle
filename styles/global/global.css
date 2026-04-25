@@ -1,21 +1,43 @@
-header {
-  padding: 16px;
-}
-main {
-  clear: both;
-  max-width: 1920px;
+.layout {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
 }
-a {
-  color: currentColor;
+
+.tool-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
 }
-footer {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 1em;
+
+.preview-panel {
+  flex: 1;
 }
-@media (min-width: 1081px) {
-  header {
-    width: calc(100% - 400px);
-    float: right;
+
+.site-header {
+  text-align: center;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.site-footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+}
+
+color-checker {
+  flex: 0 0 320px;
+}
+@media (max-width: 768px) {
+  .tool-layout {
+    flex-direction: column;
+  }
+
+  color-checker {
+    width: 100%;
   }
 }

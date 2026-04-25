@@ -73,4 +73,7 @@
   --checker-btn-accent: var(--nes-yellow);
   --checker-pass: var(--nes-green-deep);
   --checker-fail: var(--nes-red);
+
+  --preview-bg: #000000;
+  --preview-text: #fcfcfc;
 }

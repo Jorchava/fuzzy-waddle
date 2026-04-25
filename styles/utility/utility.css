@@ -28,16 +28,15 @@
 
 /* 4. Utility/Fallback Classes */
 .sampleBgColor {
-  background-color: var(--nes-black); /* fallback background */
+  background-color: var(--preview-bg, var(--nes-black));
 }
 .sampleTextColor {
-  color: var(--nes-white); /* fallback text color */
+  color: var(--preview-text, var(--nes-white));
 }
 .sampleSwitchColor {
-  background-color: var(--nes-white); /* fallback switched background */
-  color: var(--nes-black); /* fallback switched text */
+  background-color: var(--preview-text, var(--nes-white));
+  color: var(--preview-bg, var(--nes-black));
 }
-
 /* External links */
 .external-link {
   display: inline-block;
