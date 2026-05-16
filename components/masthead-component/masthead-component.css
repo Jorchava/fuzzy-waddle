@@ -40,17 +40,17 @@
 }
 .masthead_overlay-1 {
   position: absolute;
-  bottom: -40px;
+  bottom: -40%;
   filter: blur(60px);
-  height: 320px;
+  height: 50%;
   z-index: 2;
   width: 100%;
 }
 .masthead_overlay-2 {
   position: absolute;
-  bottom: -150px;
+  bottom: -50%;
   filter: blur(32px);
-  height: 360px;
+  height: 65%;
   z-index: 2;
   width: 100%;
 }
