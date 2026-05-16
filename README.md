@@ -1,112 +1,283 @@
 # ContrAst: The Color Wars – NES-Inspired Accessibility Color Checker
 
-![contrast the color wars full page screenshot](/assets/lp-screenshot-contrast-the-color-wars.png?raw=true "contrast the color wars full page screenshot")
+![ContrAst Screenshot](./assets/lp-screenshot-contrast-the-color-wars.png)
 
-Welcome, digital commandos!  
-Suit up with **Bug Raiser** (UX) and **Launch Beans** (UI) as you blast your way through the jungle of inaccessible color combos.  
-**ContrAst: The Color Wars** is your NES-inspired color contrast checker, helping you defeat the Red Falcon of poor color contrast and win the battle for inclusive design.
+A retro-inspired accessibility tool built with vanilla JavaScript and Web Components that helps developers and designers create WCAG-compliant color combinations.
 
----
-
-## 🎮 What is ContrAst?
-
-ContrAst is a retro-themed, web-based color contrast checker tool inspired by the classic NES game Contra.  
-It helps designers and developers ensure their color choices meet [WCAG 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/) accessibility standards, making the web a more inclusive place for everyone.
+ContrAst combines old-school NES aesthetics with modern frontend architecture and accessibility-first engineering practices. The project provides real-time color contrast validation, automatic text contrast correction, live UI previews, and responsive accessible design patterns.
 
 ---
 
-## 🚀 Features
+# 🎮 Overview
 
-- **Live Color Contrast Checking:** Instantly see the contrast ratio and WCAG AA/AAA compliance as you pick colors.
-- **Randomizer:** Hit "Randomize Colors" for a surprise challenge—will you get a power-up or a pitfall?
-- **Sample UI Previews:** See your color choices applied to sample masthead, and blog card components.
-- **Accessible & SEO-Friendly:** Semantic HTML, ARIA labels, skip links, and progressive enhancement.
-- **Mobile-First, Widget-Like UI:** The checker tool is compact and always accessible, even on small screens.
-- **NES/Contra Humor:** Bug Raiser and Launch Beans represent UX and UI, guiding you through the battle for accessible design.
+ContrAst: The Color Wars is a browser-based color contrast checker inspired by classic NES-era UI and arcade aesthetics.
 
-- **Next features:** 
-1. small and large text compliance feedback 
-2. bg and text color alternatives - suggestions like 
-3. combine 1 and 2 into a hamburguer off canva menu, or other
-4. fix an issue with (3) hex colors
+The application allows users to:
 
----
+- Test background and text color combinations
+- Validate WCAG 2.1 accessibility compliance
+- Automatically correct inaccessible text contrast
+- Preview colors applied to sample UI components in real time
+- Explore randomized accessible color palettes
 
-## 🕹️ How to Play
+The project was intentionally built without frameworks to demonstrate strong fundamentals in:
 
-1. **Pick your background and text colors** using the color pickers in the ContrAst widget.
-2. **Check your contrast ratio** and see if you meet the [WCAG 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/) AA/AAA standards.
-3. **Hit "Randomize Colors"** for a surprise challenge—will you get a spread shot of accessible combos, or fall into a pit of poor contrast?
-4. **Watch as Bill (UX) and Lance (UI)** update the sample UI components below, showing you the real impact of your color choices.
-5. **Aim for the highest accessibility score**—only the strongest (and most accessible) color combos survive!
+- Semantic HTML
+- Modern CSS architecture
+- ES Modules
+- Web Components
+- Accessibility engineering
+- State-driven UI updates
+- Modular frontend architecture
 
 ---
 
-## 🛠️ Tech Stack
+# ✨ Features
 
-- **HTML5** (semantic, accessible)
-- **CSS3** (mobile-first, modern, accessible)
-- **JavaScript (ES Modules)**
-- **Web Components** (custom elements, no Shadow DOM)
-- **Frameworks required: 0**
+- 🎨 Live color contrast checking
+- ♿ WCAG 2.1 AA / AAA compliance validation
+- ⚡ Real-time UI preview updates
+- 🔄 Swap foreground/background colors
+- 🎲 Random accessible color generation
+- 🛠️ Auto-fix text contrast algorithm
+- 🧱 Modular utility architecture
+- 📱 Mobile-first responsive design
+- 🕹️ Retro NES-inspired visual theme
+- 💾 Persistent color state with localStorage
+- 🚀 Zero-framework frontend implementation
 
 ---
 
-## 📦 Project Structure
+# ♿ Accessibility Features
 
-```
+ContrAst was designed with accessibility as a core engineering requirement rather than an afterthought.
+
+Accessibility improvements include:
+
+- Semantic HTML structure
+- Proper heading hierarchy
+- ARIA labels for controls and regions
+- Keyboard-accessible interactions
+- Focus-visible interactive states
+- Skip-to-content navigation
+- WCAG-compliant contrast calculations
+- Live contrast feedback
+- Responsive typography and layout
+- Accessible color auto-correction logic
+- Descriptive image alt text
+- Mobile-friendly touch targets
+
+The project follows WCAG 2.1 contrast standards:
+
+- AA compliance: 4.5:1 minimum contrast ratio
+- AAA compliance: 7:1 minimum contrast ratio
+
+---
+
+# 🛠️ Tech Stack
+
+## Core Technologies
+
+- HTML5
+- CSS3
+- Vanilla JavaScript (ES Modules)
+
+## Architecture Patterns
+
+- Web Components
+- Component-based CSS organization
+- Utility-driven modular architecture
+- Event-driven state updates
+- CSS custom properties (variables)
+
+## Browser APIs
+
+- Custom Events
+- localStorage
+- CSS Variables
+- Custom Elements API
+
+---
+
+# 🧱 Architecture
+
+The project follows a modular frontend architecture with clear separation of concerns.
+
+## Design Principles
+
+- Single responsibility utilities
+- Stateless rendering layer
+- Component-driven UI structure
+- Decoupled state management
+- Centralized accessibility logic
+- Reusable utility modules
+
+## Utility Responsibilities
+
+### `color-utils.js`
+
+Handles low-level color operations:
+
+- HEX validation
+- RGB conversion
+- Random color generation
+
+### `contrast-utils.js`
+
+Handles accessibility calculations:
+
+- Luminance calculation
+- Contrast ratio computation
+- WCAG status evaluation
+- Accessible pair generation
+- Automatic text contrast correction
+
+### `storage-utils.js`
+
+Handles persistence:
+
+- Save color preferences
+- Restore saved application state
+
+---
+
+# 📁 Project Structure
+
+```txt
 /assets
+
 /components
-  /color-checker
-  /masthead-component
   /blog-card
+    blog-card.css
+    blog-card.js
+
+  /color-checker
+    color-checker.css
+    color-checker.js
+
+  /masthead-component
+    masthead-component.css
+    masthead-component.js
+
 /styles
-  /blog-card
   /global
-  /color-checker
-  /masthead-component
-  /utility
+    global.css
+
+  fonts.css
+  vars.css
+
+/utils
+  color-utils.js
+  contrast-utils.js
+  storage-utils.js
+
 index.html
-main.js
 main.css
+main.js
 README.md
 ```
 
 ---
 
-## ♿ Accessibility & SEO
+# 💻 Local Development
 
-- Semantic HTML structure
-- ARIA labels and skip link
-- Accessible color contrast and focus states
-- Descriptive alt text for images
-- Mobile-first responsive design
-- SEO-friendly meta tags
+## Clone the repository
+
+```bash
+git clone https://github.com/Jorchava/fuzzy-waddle.git
+```
+
+## Navigate into the project
+
+```bash
+cd fuzzy-waddle
+```
+
+## Run locally
+
+Because the project uses ES Modules, run it through a local development server.
+
+### VSCode Live Server
+
+Install:
+
+- Live Server extension
+
+Then:
+
+- Right click `index.html`
+- Select `Open with Live Server`
+
+### Python HTTP Server
+
+```bash
+python -m http.server 5500
+```
+
+Then open:
+
+```txt
+http://localhost:5500
+```
 
 ---
 
-## 📝 License
+# 🚀 Deployment
 
-Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
+ContrAst can be deployed easily to modern static hosting providers.
 
-This work is licensed under a
-[Creative Commons Attribution 4.0 International License][cc-by].
+## Deployment Notes
 
-[![CC BY 4.0][cc-by-image]][cc-by]
-
-[cc-by]: http://creativecommons.org/licenses/by/4.0/
-[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
-[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+- No backend required
+- No build step required
+- Fully static frontend application
+- Optimized for CDN delivery
 
 ---
 
-## 👾 Credits & Inspiration
+# 🔮 Future Improvements
 
-- NES Contra (Konami, 1988) for the theme and humor
+Planned improvements and experimental ideas:
+
+- 🎯 Small vs large text WCAG analysis
+- 🎨 Suggested accessible alternative palettes
+- 🌗 Light/dark UI themes
+- 📋 Copy-to-clipboard HEX actions
+- 📈 Contrast history tracking
+- 🧪 Unit testing for utility modules
+- 🖼️ Export/share generated palettes
+- 📊 Accessibility score visualization
+
+---
+
+# 👾 Credits
+
+## Inspiration
+
+- NES-era UI and visual design
+- Contra (Konami, 1988)
+- Retro arcade aesthetics
+- Accessibility-first frontend engineering
+
+## Accessibility Resources
+
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)
-- [Accessible Color Contrast](https://webaim.org/resources/contrastchecker/)
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [MDN Accessibility Docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
+
+## Built With
+
+- Vanilla JavaScript
+- Web Components
+- CSS Variables
+- Semantic HTML
 
 ---
 
-**Ready? Let’s CONTRAST!**  
-<span aria-hidden="true" title="Konami Code">↑ ↑ ↓ ↓ ← → ← → B A</span>
+# 🕹️ Ready to CONTRAST?
+
+```txt
+↑ ↑ ↓ ↓ ← → ← → B A
+```
+
+Fight inaccessible UI one color combination at a time.

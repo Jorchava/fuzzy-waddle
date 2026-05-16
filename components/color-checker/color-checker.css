@@ -52,6 +52,10 @@
   text-transform: uppercase;
   text-align: left;
 }
+.color-value.invalid {
+  border-color: var(--checker-fail);
+  box-shadow: 0 0 0 2px rgb(255 0 0 / 30%);
+}
 .color-switch {
   border: 2px solid var(--checker-accent);
   background: var(--checker-btn-bg);
@@ -79,10 +83,6 @@
   display: inline-block;
   height: 44px;
 }
-.randomizeColors_wrapper {
-  display: flex;
-  justify-content: flex-end;
-}
 .randomize-btn {
   width: 100%;
   background: var(--checker-btn-accent);
@@ -102,12 +102,26 @@
   color: var(--checker-btn-accent);
   outline: 2px solid var(--checker-accent);
 }
+.fix-btn {
+  background: var(--checker-btn-bg);
+  color: var(--checker-text);
+  border: 2px solid var(--checker-border);
+  padding: 0.6em 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.fix-btn:hover,
+.fix-btn:focus {
+  background: var(--checker-btn-bg-hover);
+  outline: 2px solid var(--checker-accent);
+}
 .contrast-ratio {
   font-weight: bold;
   font-size: 0.9em;
   padding: 0.5em;
   border: 3px solid var(--checker-panel);
   color: var(--checker-text);
+  background: var(--checker-bg);
 }
 .wcag-status,
 .statusSymbol {

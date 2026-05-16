@@ -1,0 +1,42 @@
+/* 2. NES Palette and UI Theme Variables */
+:root {
+  /* NES Palette */
+  --nes-black: #000000;
+  --nes-white: #fcfcfc;
+  --nes-white-rgb: 252 252 252;
+  --nes-black-rgb: 0 0 0;
+  --nes-light-gray: #f8f8f8;
+  --nes-gray: #bcbcbc;
+  --nes-cyan-light: #a4e4fc;
+  --nes-cyan: #3cbcfc;
+  --nes-blue-light: #0078f8;
+  --nes-blue: #0000fc;
+  --nes-blue-gray: #b8b8f8;
+  --nes-pink-hot: #f85898;
+  --nes-red: #e40058;
+  --nes-yellow-light: #fce0a8;
+  --nes-yellow: #fca044;
+  --nes-green-light: #d8f878;
+  --nes-green: #b8f818;
+  --nes-green-deep: #00a800;
+  --nes-blue-black: #004058;
+
+  /* NES UI Theme for the Checker Tool */
+  --checker-bg: var(--nes-black);
+  --checker-border: var(--nes-gray);
+  --checker-dark-border: var(--nes-blue-black);
+  --checker-panel: var(--nes-blue-gray);
+  --checker-panel-alt: var(--nes-light-gray);
+  --checker-text: var(--nes-white);
+  --checker-label: var(--nes-yellow);
+  --checker-accent: var(--nes-cyan);
+  --checker-btn-bg: var(--nes-blue);
+  --checker-btn-bg-hover: var(--nes-blue-light);
+  --checker-btn-text: var(--nes-white);
+  --checker-btn-accent: var(--nes-yellow);
+  --checker-pass: var(--nes-green-deep);
+  --checker-fail: var(--nes-red);
+
+  --preview-bg: var(--nes-black);
+  --preview-text: var(--nes-white);
+}

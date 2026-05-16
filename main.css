@@ -1,8 +1,6 @@
-@import url('styles/global/fonts.css');
-@import url('styles/global/vars.css');
-@import url('styles/global/reset.css');
-@import url('styles/global/global.css');
-@import url('styles/utility/utility.css');
-@import url('styles/color-checker/color-checker.css');
-@import url('styles/masthead-component/masthead-component.css');
-@import url('styles/blog-card/blog-card.css');
+@import url("styles/fonts.css");
+@import url("styles/vars.css");
+@import url("styles/global/global.css");
+@import url("./components/color-checker/color-checker.css");
+@import url("./components/masthead-component/masthead-component.css");
+@import url("./components/blog-card/blog-card.css");

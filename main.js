@@ -1,4 +1,5 @@
 import "./components/color-checker/color-checker.js";
+import { loadColors } from "./utils/storage-utils.js";
 
 // ---------- RENDER LAYER (CSS VARIABLES) ----------
 
@@ -18,10 +19,7 @@ function handleColorChange(e) {
 // ---------- INIT ----------
 
 function getInitialColors() {
-  return {
-    bgColor: localStorage.getItem("bgColor") || "#000000",
-    textColor: localStorage.getItem("textColor") || "#FCFCFC",
-  };
+  return loadColors();
 }
 
 function init() {

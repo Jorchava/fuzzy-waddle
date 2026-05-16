@@ -1,9 +1,13 @@
+import { isValidHex } from "../../utils/color-utils.js";
+
 import {
-  isValidHex,
   getContrastRatio,
   getContrastStatus,
   getAccessiblePair,
-} from "../../utils/color-utils.js";
+  fixTextContrast,
+} from "../../utils/contrast-utils.js";
+
+import { saveColors, loadColors } from "../../utils/storage-utils.js";
 class ColorChecker extends HTMLElement {
   state = {
     bgColor: "#000000",
@@ -30,48 +34,56 @@ class ColorChecker extends HTMLElement {
       aaa: this.querySelector("#wcagStatusAAA"),
       switchBtn: this.querySelector("#colorSwitch"),
       randomBtn: this.querySelector("#randomizeColors"),
+      fixButton: this.querySelector("#fixTextContrast"),
     };
   }
 
   loadState() {
-    const bg = localStorage.getItem("bgColor");
-    const text = localStorage.getItem("textColor");
-
-    if (bg) this.state.bgColor = bg;
-    if (text) this.state.textColor = text;
+    this.state = loadColors();
   }
 
   bindEvents() {
-    this.elements.bgInput.addEventListener("input", (e) => {
+    this.elements.bgInput?.addEventListener("input", (e) => {
       this.updateState({ bgColor: e.target.value.toUpperCase() });
     });
 
-    this.elements.textInput.addEventListener("input", (e) => {
+    this.elements.textInput?.addEventListener("input", (e) => {
       this.updateState({ textColor: e.target.value.toUpperCase() });
     });
 
-    this.elements.bgValue.addEventListener("input", (e) => {
+    this.elements.bgValue?.addEventListener("input", (e) => {
       if (isValidHex(e.target.value)) {
         this.updateState({ bgColor: e.target.value.toUpperCase() });
       }
     });
 
-    this.elements.textValue.addEventListener("input", (e) => {
+    this.elements.textValue?.addEventListener("input", (e) => {
       if (isValidHex(e.target.value)) {
         this.updateState({ textColor: e.target.value.toUpperCase() });
       }
     });
 
-    this.elements.switchBtn.addEventListener("click", () => {
+    this.elements.switchBtn?.addEventListener("click", () => {
       this.updateState({
         bgColor: this.state.textColor,
         textColor: this.state.bgColor,
       });
     });
 
-    this.elements.randomBtn.addEventListener("click", () => {
+    this.elements.randomBtn?.addEventListener("click", () => {
       const { bg, text } = getAccessiblePair();
       this.updateState({ bgColor: bg, textColor: text });
+    });
+
+    this.elements.fixButton?.addEventListener("click", () => {
+      const fixedText = fixTextContrast(
+        this.state.bgColor,
+        this.state.textColor,
+      );
+
+      this.updateState({
+        textColor: fixedText,
+      });
     });
   }
 
@@ -90,8 +102,7 @@ class ColorChecker extends HTMLElement {
     this.elements.textValue.value = textColor;
 
     // Save
-    localStorage.setItem("bgColor", bgColor);
-    localStorage.setItem("textColor", textColor);
+    saveColors({ bgColor, textColor });
 
     // Compute
     const ratio = getContrastRatio(bgColor, textColor);

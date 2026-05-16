@@ -3,19 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      ContrAst: The Color Wars – NES-Inspired Accessibility Color Checker
-    </title>
+    <title>Contrast Checker | NES-Inspired Accessibility Color Checker</title>
     <meta
       name="description"
       content="ContrAst: The Color Wars – A retro NES-inspired color contrast checker for web accessibility. Join Bug Raiser (UX) and Launch Beans (UI) to defeat inaccessible color combos and win the Accessibility battle!"
     />
-    <link rel="stylesheet" href="main.css" />
-    <link
-      href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAq6urAAAA5gB8fH0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREREAAAAAAAAAAAAAAwMDAAAAADAAAAAAICADMwMzMwAAAAAwAAAAAAAAAAADMzMAAAAREREREREREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7/AAD+/wAA/38AAP+/AAD/vwAA"
-      rel="icon"
-      type="image/x-icon"
+    <meta
+      name="keywords"
+      content="color contrast checker, WCAG checker, accessibility tool, NES accessibility"
     />
+    <meta property="og:title" content="ContrAst: The Color Wars" />
+    <meta
+      property="og:description"
+      content="NES-inspired accessibility contrast checker for designers and developers."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      property="og:image"
+      content="/assets/lp-screenshot-contrast-the-color-wars.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ContrAst: The Color Wars" />
+    <meta
+      name="twitter:description"
+      content="Retro-inspired WCAG contrast checker."
+    />
+    <meta
+      name="twitter:image"
+      content="/assets/lp-screenshot-contrast-the-color-wars.png"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
 
   <body>
@@ -23,10 +47,10 @@
       >Skip to main content</a
     >
     <header class="site-header">
-      <h1 id="main-content">Contrast Checker</h1>
+      <h1>Contrast Checker</h1>
       <p class="subtitle">Fast, accessible color contrast tool (WCAG 2.1)</p>
     </header>
-    <main class="layout">
+    <main id="main-content" class="layout">
       <div class="tool-layout">
         <!-- LEFT: TOOL -->
         <color-checker role="region" aria-label="Color Contrast Checker">
@@ -77,18 +101,30 @@
                 >
                   <span class="switch-icon">⇆</span>
                 </button>
+                <button
+                  type="button"
+                  id="fixTextContrast"
+                  class="fix-btn"
+                  aria-label="Automatically improve text contrast"
+                >
+                  Auto Fix Contrast
+                </button>
               </div>
             </fieldset>
 
             <div class="checker-results checker-row">
               <span>
                 Contrast:
-                <span id="contrastRatio" class="contrast-ratio"></span>
+                <span
+                  id="contrastRatio"
+                  class="contrast-ratio"
+                  aria-live="polite"
+                ></span>
               </span>
             </div>
 
             <div class="checker-results checker-row">
-              <span>Status:</span>
+              <h2 class="sr-only">Accessibility Status</h2>
               <span id="wcagStatusAA" class="statusSymbol wcag-status">AA</span>
               <span id="wcagStatusAAA" class="statusSymbol wcag-status"
                 >AAA</span
@@ -101,6 +137,21 @@
               </button>
             </div>
           </form>
+          <section class="seo-content">
+            <h2>What is color contrast accessibility?</h2>
+
+            <p>
+              Color contrast accessibility ensures text remains readable for
+              users with low vision, color blindness, or visual impairments.
+            </p>
+
+            <h2>What WCAG contrast ratio is required?</h2>
+
+            <p>
+              WCAG 2.1 AA requires a minimum contrast ratio of 4.5:1 for normal
+              text.
+            </p>
+          </section>
         </color-checker>
 
         <!-- RIGHT: PREVIEW -->
@@ -125,6 +176,8 @@
                   colors.
                 </p>
               </div>
+              <div class="masthead_overlay-1 sampleBgColor"></div>
+              <div class="masthead_overlay-2 sampleBgColor"></div>
             </masthead-component>
 
             <!-- SIMPLIFIED CARD -->
@@ -157,7 +210,14 @@
     <footer class="site-footer">
       <p>
         Built with vanilla JavaScript and Web Components.
-        <a href="https://github.com/Jorchava/fuzzy-waddle">View source</a>
+        <a
+          href="https://github.com/Jorchava/fuzzy-waddle"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View source
+          <span class="sr-only"> (opens in a new tab)</span>
+        </a>
       </p>
     </footer>
     <script type="module" src="main.js"></script>

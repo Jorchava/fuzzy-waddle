@@ -1,3 +1,61 @@
+/* Reset */
+/* 3. Modern CSS Reset */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background: var(--nes-light-gray);
+  color: var(--nes-black);
+  line-height: 1.6;
+  font-size: 0.75rem;
+  font-family: "Press Start 2P", "Segoe UI", Arial, sans-serif;
+  text-align: center;
+  padding: 12px;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+ul li {
+  list-style: none;
+}
+fieldset {
+  border: none;
+  padding: 0;
+}
+/* Color input swatch reset for browsers */
+::-webkit-color-swatch,
+::-moz-color-swatch {
+  border-color: var(--checker-border);
+}
+/* Globals */
 .layout {
   max-width: 1200px;
   margin: 0 auto;
@@ -19,7 +77,7 @@
 }
 
 .subtitle {
-  color: #666;
+  color: var(--checker-dark-border);
   font-size: 0.95rem;
 }
 
@@ -40,4 +98,49 @@ color-checker {
   color-checker {
     width: 100%;
   }
+}
+
+/* Utilities */
+/* Visually hide but keep accessible for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Make visible when focused (for keyboard navigation) */
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  background: var(--nes-yellow-light);
+  color: var(--nes-black);
+  padding: 0.5em 1em;
+  font-weight: bold;
+  z-index: 1000;
+}
+.seo-content {
+  font-size: 0.5rem;
+  padding: 25px 0 0;
+}
+
+/* 4. Utility/Fallback Classes */
+.sampleBgColor {
+  background-color: var(--preview-bg, var(--nes-black));
+}
+.sampleTextColor {
+  color: var(--preview-text, var(--nes-white));
+}
+.sampleSwitchColor {
+  background-color: var(--preview-text, var(--nes-white));
+  color: var(--preview-bg, var(--nes-black));
 }
